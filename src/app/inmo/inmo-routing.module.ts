@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { AgregarComponent } from './pages/agregar/agregar.component';
 import { ListadoComponent } from './pages/listado/listado.component';
 import { PropiedadComponent } from './pages/propiedad/propiedad.component';
 import { HomeComponent } from './pages/home/home.component';
+import { ValidarTokenGuard } from '../guards/validar-token.guard';
 
 const routes: Routes = [
   {
@@ -16,19 +16,13 @@ const routes: Routes = [
       },
       {
         path: 'favoritos',
-        component: ListadoComponent
+        component: ListadoComponent,
+        canActivate: [ ValidarTokenGuard ],
+        canLoad: [ ValidarTokenGuard ]
       },
       {
         path: 'listado',
         component: ListadoComponent
-      },
-      {
-        path: 'agregar',
-        component: AgregarComponent
-      },
-      {
-        path: 'editar/:id',
-        component: AgregarComponent
       },
       {
         path: ':id',

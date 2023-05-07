@@ -19,6 +19,10 @@ interface MenuItem {
 export class HeaderComponent {
   menuItems: MenuItem[] = [
     {
+      ruta: '/inmo/favoritos',
+      nombre: 'Favoritos'
+    },
+    {
       ruta: '/auth/perfil',
       nombre: 'Perfil'
     },
@@ -34,12 +38,8 @@ export class HeaderComponent {
 
   navItems: MenuItem[] = [
     {
-      ruta: '/inmo/agregar',
+      ruta: '/nuevo/ubicacion',
       nombre: 'Pon tu anuncio'
-    },
-    {
-      ruta: '/inmo/favoritos',
-      nombre: 'Favoritos'
     }
   ]
 }

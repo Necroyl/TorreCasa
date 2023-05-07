@@ -1,4 +1,7 @@
-<div class="container">
-  <app-prop-card class="m-5"></app-prop-card>
-</div>
+<h4>Listado de propiedades</h4>
 
+<div class="row wrap">
+  <div class="col" *ngFor="let propiedad of propiedades">
+    <app-prop-card [propiedad]="propiedad" class="m-5"></app-prop-card>
+  </div>
+</div>

@@ -1,9 +1,9 @@
 <div class="container">
     <header class="d-flex flex-wrap justify-content-center py-3 border-bottom">
       <div class="d-flex align-items-center me-md-auto mt-2">
-        <a routerLink="/inmo/home" class="text-decoration-none link-body-emphasis">
-          <img src="/assets/imgs/torre_logo.png" alt="Torre" width="40" height="40" class="mb-2">
-          <span class="fs-3">TorreCasas</span>
+        <a routerLink="/inmo/home" class="text-decoration-none link-body-emphasis fs-2">
+          <img src="/assets/images/icons/torre_logo.png" alt="Torre" width="60" height="60">
+          <span class="fs-2">TorreCasas</span>
         </a>
         <ul class="nav nav-pills ms-2">
           <li *ngFor="let item of navItems"
@@ -15,7 +15,7 @@
         </ul>
       </div>
 
-    <div class="mt-3">
+    <div class="mt-4">
       <ul class="nav nav-pills">
         <li *ngFor="let item of menuItems"
             [routerLink]="[ item.ruta ]"

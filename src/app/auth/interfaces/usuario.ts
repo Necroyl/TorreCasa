@@ -1,13 +1,21 @@
-import { Propiedad } from "src/app/inmo/interfaces/propiedad.interface";
+import { Propiedad } from "src/app/interfaces/propiedad.interface";
+
+export interface AuthResponse {
+  ok: boolean,
+  uid?: string,
+  name?: string,
+  email?: string,
+  token?: string,
+  msg?: string
+}
 
 export interface Usuario {
-  id?: number,
-  nombre: string,
-  apellidos: string,
+  uid: string,
+  name: string,
   email: string,
-  pass: string,
-  id_usuario: string,
-  avatar: string,
-  favoritos: [ Propiedad ],
-  misProp: [ Propiedad ]
+  nombre?: string,
+  apellidos?: string,
+  avatar?: string,
+  favoritos?: [ Propiedad ],
+  misProp?: [ Propiedad ]
 }

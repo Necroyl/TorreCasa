@@ -1,4 +1,4 @@
-import { Usuario } from './../../auth/interfaces/usuario'
+import { Usuario } from "../auth/interfaces/usuario"
 
 export interface Propiedad {
   id?: number,
@@ -13,7 +13,7 @@ export interface Propiedad {
 export interface Distribucion {
   metros: number,
   habitaciones: number,
-  baños: number,
+  banyos: number,
   cocina: [ 'americana', 'cerrada' ],
   terraza: boolean,
   balcon: boolean,
@@ -22,12 +22,10 @@ export interface Distribucion {
 
 export interface Ubicacion {
   calle: string,
-  numero: number,
-  portal: string,
-  bloque: string,
-  piso: number,
-  puerta: string
-  lat: number,
-  lng: number
+  numero: string,
+  piso: string,
+  puerta?: string,
+  lat?: number,
+  lng?: number
 }
 
