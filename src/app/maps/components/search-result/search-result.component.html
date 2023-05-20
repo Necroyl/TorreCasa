@@ -1,0 +1,12 @@
+<div *ngIf="isLoadingPlaces"
+    class="alert alert-primary text-center">
+  <span>Cargando. Espere por favor..</span>
+</div>
+
+<ul class="list-group mt-1" *ngIf="places.length > 0">
+  <li *ngFor="let place of places"
+      class="list-group-item list-group-item-action pointer"
+      (click)="flyTo( place ); saveData( place )">
+      <p>{{ place.place_name }} (click para seleccionar)</p>
+  </li>
+</ul>

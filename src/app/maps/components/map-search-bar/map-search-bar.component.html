@@ -1,0 +1,10 @@
+<div class="search-container">
+  <input
+      type="text"
+      class="form-control"
+      placeholder="Introduzca la calle y el número.."
+      #txtQuery
+      (keyup)="onQueryChanged(txtQuery.value)">
+
+      <app-search-result (lugarSeleccionado)="recibirLugarSeleccionado($event)"></app-search-result>
+</div>
