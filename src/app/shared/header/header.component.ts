@@ -38,7 +38,7 @@ export class HeaderComponent {
 
   navItems: MenuItem[] = [
     {
-      ruta: '/nuevo/ubicacion',
+      ruta: '/inmo/nuevo',
       nombre: 'Pon tu anuncio'
     }
   ]

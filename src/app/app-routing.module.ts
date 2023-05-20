@@ -8,12 +8,6 @@ const routes: Routes = [
     loadChildren: () => import('./auth/auth.module').then( m => m.AuthModule )
   },
   {
-    path: 'nuevo',
-    loadChildren: () => import('./agregar/agregar.module').then( m => m.AgregarModule ),
-    canActivate: [ ValidarTokenGuard ],
-    canLoad: [ ValidarTokenGuard ]
-  },
-  {
     path: 'inmo',
     loadChildren: () => import('./inmo/inmo.module').then( m => m.InmoModule )
   },

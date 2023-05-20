@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { PropIdealista } from '../../../interfaces/inerfaz-idea.interface';
 
 @Component({
   selector: 'app-prop-card',
@@ -8,6 +7,5 @@ import { PropIdealista } from '../../../interfaces/inerfaz-idea.interface';
   ]
 })
 export class PropCardComponent {
-  @Input() propiedad!: PropIdealista;
 
 }

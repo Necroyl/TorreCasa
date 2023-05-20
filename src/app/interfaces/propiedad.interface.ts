@@ -2,15 +2,11 @@ import { Usuario } from "../auth/interfaces/usuario"
 
 export interface Propiedad {
   id?: number,
-  distribucion: Distribucion,
-  ubicacion: Ubicacion,
-  estado: ['nueva', 'segunda mano', 'reformada'],
-  precio: number,
-  fotos: string[],
-  propietario: Usuario
-}
-
-export interface Distribucion {
+  direccion: string,
+  planta: number,
+  puerta?: string,
+  lat?: number,
+  lng?: number,
   metros: number,
   habitaciones: number,
   banyos: number,
@@ -18,14 +14,10 @@ export interface Distribucion {
   terraza: boolean,
   balcon: boolean,
   piscina: boolean
+  estado: ['nueva', 'segunda', 'reforma'],
+  precio: number,
+  fotos?: String[],
+  propietario: Usuario
 }
 
-export interface Ubicacion {
-  calle: string,
-  numero: string,
-  piso: string,
-  puerta?: string,
-  lat?: number,
-  lng?: number
-}
 

@@ -5,6 +5,7 @@ import { ListadoComponent } from './pages/listado/listado.component';
 import { PropiedadComponent } from './pages/propiedad/propiedad.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ValidarTokenGuard } from '../guards/validar-token.guard';
+import { AgregarComponent } from './pages/agregar/agregar.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,12 @@ const routes: Routes = [
       {
         path: 'home',
         component: HomeComponent
+      },
+      {
+        path: 'nuevo',
+        component: AgregarComponent,
+        canActivate: [ ValidarTokenGuard ],
+        canLoad: [ ValidarTokenGuard ]
       },
       {
         path: 'favoritos',
