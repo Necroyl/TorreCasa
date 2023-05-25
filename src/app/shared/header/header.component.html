@@ -6,11 +6,10 @@
           <span class="fs-2">TorreCasas</span>
         </a>
         <ul class="nav nav-pills ms-2">
-          <li *ngFor="let item of navItems"
-              [routerLink]="[ item.ruta ]"
+          <li [routerLink]="[ navItem.ruta ]"
               routerLinkActive="active"
               class="nav-link">
-            {{ item.nombre }}
+            {{ navItem.nombre }}
           </li>
         </ul>
       </div>

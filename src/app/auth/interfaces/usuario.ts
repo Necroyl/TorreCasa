@@ -1,4 +1,4 @@
-import { Propiedad } from "src/app/interfaces/propiedad.interface";
+import { Vivienda } from "src/app/interfaces/vivienda.interface";
 
 export interface AuthResponse {
   ok: boolean,
@@ -16,6 +16,6 @@ export interface Usuario {
   nombre?: string,
   apellidos?: string,
   avatar?: string,
-  favoritos?: [ Propiedad ],
-  misProp?: [ Propiedad ]
+  favoritos?: [ Vivienda ],
+  misProp?: [ Vivienda ]
 }

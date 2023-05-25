@@ -3,7 +3,7 @@
 
     <div class="wrap-add200 p-5 m-1">
 
-      <form class="add100-form" autocomplete="off" [formGroup]="miFormulario" (ngSubmit)="agregar()">
+      <form class="add100-form" autocomplete="off" [formGroup]="miFormulario" (ngSubmit)="agregar()" enctype="multipart/form-data">
 
         <span class="add100-form-title">
           Pon tu propiedad a la venta
@@ -21,6 +21,8 @@
             <div class="wrap-input100 m-1">
               <span class="label-input100">Dirección</span>
               <input class="input100" type="text" formControlName="direccion" [value]="direccion" readonly>
+              <input type="number" formControlName="lng" [value]="lng" hidden>
+              <input type="number" formControlName="lat" [value]="lat" hidden>
               <span class="focus-input100"></span>
             </div>
           </div>
@@ -43,120 +45,34 @@
 
         </div>
 
-        <h6 class="mt-4">Distribución</h6>
+        <h6 class="mt-4">Descripción</h6>
 
         <div class="row">
 
           <div class="col">
             <div class="wrap-input100 m-1">
-              <span class="label-input100">Metros const.</span>
-              <input class="input100" type="number" formControlName="metros">
-              <span class="focus-input100"></span>
-            </div>
-          </div>
-
-          <div class="col">
-            <div class="wrap-input100 m-1">
-              <span class="label-input100">Habitaciones</span>
-              <input class="input100" type="number" formControlName="habitaciones">
-              <span class="focus-input100"></span>
-            </div>
-          </div>
-
-          <div class="col">
-            <div class="wrap-input100 m-1">
-              <span class="label-input100">Baños</span>
-              <input class="input100" type="number" formControlName="banyos">
-              <span class="focus-input100"></span>
-            </div>
-          </div>
-
-          <div class="col">
-            <div class="wrap-input100-noBorder m-3">
-              <span class="label-input100">Cocina</span>
-              <br>
-              <input class="m-1" type="radio" formControlName="cocina" value="cerrada">
-              <label>Cerrada</label>
-              <br>
-              <input class="m-1" type="radio" formControlName="cocina" value="americana">
-              <label>Americana</label>
-              <span class="focus-input100"></span>
-            </div>
-          </div>
-
-          <div class="col">
-            <div class="wrap-input100-noBorder m-3">
-              <span class="label-input100">Terraza</span>
-              <br>
-              <input class="m-1" type="radio" formControlName="terraza" value="true">
-              <label>Si</label>
-              <br>
-              <input class="m-1" type="radio" formControlName="terraza" value="false">
-              <label>No</label>
-              <span class="focus-input100"></span>
-            </div>
-          </div>
-
-          <div class="col">
-            <div class="wrap-input100-noBorder m-3">
-              <span class="label-input100">Balcón</span>
-              <br>
-              <input class="m-1" type="radio" formControlName="balcon" value="true">
-              <label>Si</label>
-              <br>
-              <input class="m-1" type="radio" formControlName="balcon" value="false">
-              <label>No</label>
-              <span class="focus-input100"></span>
-            </div>
-          </div>
-
-          <div class="col">
-            <div class="wrap-input100-noBorder m-3">
-              <span class="label-input100">Piscina</span>
-              <br>
-              <input class="m-1" type="radio" formControlName="piscina" value="true">
-              <label>Si</label>
-              <br>
-              <input class="m-1" type="radio" formControlName="piscina" value="false">
-              <label>No</label>
+              <textarea class="imput100" cols="80" rows="4" formControlName="descripcion" placeholder="Incluye una descripción detallada de tu vivienda. No olvides datos de interés como los metros cuadrados, número de habitaciones, baños, etc. También es importante conocer el estado de la vivienda y si dispone de terraza, balcón o piscina."></textarea>
               <span class="focus-input100"></span>
             </div>
           </div>
 
         </div>
 
-        <h6 class="mt-4">Estado</h6>
+        <h6 class="mt-4">Precio y fotografía</h6>
 
         <div class="row">
 
-          <div class="col">
+          <div class="col-4">
             <div class="wrap-input100 m-1">
-              <span class="label-input100">Precio €</span>
-              <input class="input100" type="number" formControlName="precio" style="font-size: 35px;">
+              <input class="input100" type="number" formControlName="precio" style="font-size: 25px;">
               <span class="focus-input100"></span>
             </div>
           </div>
 
-          <div class="col">
-            <div class="wart-input100-noBorder m-1">
-              <span class="label-input100">Estado</span>
-              <br>
-              <input class="m-1" type="radio" formControlName="estado" value="nueva">
-              <label>Nueva</label>
-              <br>
-              <input class="m-1" type="radio" formControlName="estado" value="segunda">
-              <label>Segunda mano</label>
-              <br>
-              <input class="m-1" type="radio" formControlName="estado" value="reforma">
-              <label>Reformada</label>
-              <span class="focus-input100"></span>
-            </div>
-          </div>
-
-          <div class="col">
+          <div class="col-8">
             <div class="wart-input100-noBorder m-3">
               <span class="label-input100">Fotos</span>
-              <input type="file" multiple>
+              <input type="file" (change)="onFileChange($event)">
               <span class="focus-input100"></span>
             </div>
           </div>

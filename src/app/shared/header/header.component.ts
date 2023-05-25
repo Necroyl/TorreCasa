@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from 'src/app/auth/services/auth.service';
 
 interface MenuItem {
   ruta: string,
@@ -17,6 +18,7 @@ interface MenuItem {
   ]
 })
 export class HeaderComponent {
+
   menuItems: MenuItem[] = [
     {
       ruta: '/inmo/favoritos',
@@ -36,10 +38,9 @@ export class HeaderComponent {
     }
   ]
 
-  navItems: MenuItem[] = [
-    {
-      ruta: '/inmo/nuevo',
-      nombre: 'Pon tu anuncio'
-    }
-  ]
+  navItem: MenuItem = {
+    ruta: '/inmo/nuevo',
+    nombre: 'Pon tu anuncio',
+  }
+
 }

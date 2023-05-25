@@ -22,7 +22,7 @@ export class AuthService {
   constructor( private http: HttpClient ) { }
 
   login( email: string, password: string ) {
-    const url: string = `${ this.baseUrl }/auth`;
+    const url: string = `${ this.baseUrl }/api/auth`;
     const body = { email, password };
 
     return this.http.post<AuthResponse>( url, body )
@@ -38,7 +38,7 @@ export class AuthService {
   }
 
   registro( name: string, email: string, password: string){
-    const url: string = `${ this.baseUrl }/auth/new`;
+    const url: string = `${ this.baseUrl }/api/auth/new`;
     const body = { name, email, password };
 
     return this.http.post<AuthResponse>( url, body )
@@ -54,7 +54,7 @@ export class AuthService {
   }
 
   validarToken(): Observable<boolean> {
-    const url: string = `${ this.baseUrl }/auth/renew`;
+    const url: string = `${ this.baseUrl }/api/auth/renew`;
     const headers = new HttpHeaders()
           .set( 'x-token', localStorage.getItem('token') || '' );
 
@@ -79,4 +79,13 @@ export class AuthService {
     localStorage.clear();
   }
 
+  getUserData(): any {
+    const token = localStorage.getItem('token');
+
+    // Aquí puedes realizar la lógica para decodificar el token y obtener los datos del usuario
+    // Por ejemplo, si el token es un JSON con los datos del usuario, puedes hacer:
+    const userData = JSON.parse(atob(token!.split('.')[1]));
+
+    return userData;
+  }
 }

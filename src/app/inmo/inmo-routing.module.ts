@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { ListadoComponent } from './pages/listado/listado.component';
-import { PropiedadComponent } from './pages/propiedad/propiedad.component';
+import { ViviendaComponent } from './pages/vivienda/vivienda.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ValidarTokenGuard } from '../guards/validar-token.guard';
 import { AgregarComponent } from './pages/agregar/agregar.component';
@@ -33,11 +33,11 @@ const routes: Routes = [
       },
       {
         path: ':id',
-        component: PropiedadComponent
+        component: ViviendaComponent
       },
       {
         path: '**',
-        redirectTo: 'listado'
+        redirectTo: 'home'
       }
     ]
   }

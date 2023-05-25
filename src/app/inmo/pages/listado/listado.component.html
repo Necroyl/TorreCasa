@@ -1,7 +1,22 @@
-<h4>Listado de propiedades</h4>
+<div class="limiter">
+  <div class="container-login100" style="background-image: url('../../../../assets/images/bg-01.jpg');">
 
-<div class="row wrap">
-  <!-- <div class="col" *ngFor="let propiedad of propiedades">
-    <app-prop-card [propiedad]="propiedad" class="m-5"></app-prop-card>
-  </div> -->
+    <div class="col-12">
+      <h1 class="text-white">Viviendas a la venta</h1>
+    </div>
+
+
+    <div class="col-12 map">
+      <app-map-view></app-map-view>
+    </div>
+
+    <div class="mb-4 mt-2 row row-cols-2 row-cols-md-3 row-cols-xl-4 g-4">
+        <app-prop-card
+            *ngFor="let vivienda of viviendas"
+            [vivienda]="vivienda" class="m-5"
+            (deleted)="onRestaurantDeleted(vivienda)">
+        </app-prop-card>
+    </div>
+
+  </div>
 </div>

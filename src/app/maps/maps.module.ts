@@ -19,7 +19,8 @@ import { SearchResultComponent } from './components/search-result/search-result.
     CommonModule
   ],
   exports: [
-    MapScreenComponent
+    MapScreenComponent,
+    MapViewComponent
   ]
 })
 export class MapsModule { }
