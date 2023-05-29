@@ -21,10 +21,6 @@ export class HeaderComponent {
 
   menuItems: MenuItem[] = [
     {
-      ruta: '/inmo/favoritos',
-      nombre: 'Favoritos'
-    },
-    {
       ruta: '/auth/perfil',
       nombre: 'Perfil'
     },

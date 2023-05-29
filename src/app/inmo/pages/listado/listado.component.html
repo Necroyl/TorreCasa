@@ -5,9 +5,10 @@
       <h1 class="text-white">Viviendas a la venta</h1>
     </div>
 
-
     <div class="col-12 map">
-      <app-map-view></app-map-view>
+      <ng-container *ngIf="viviendas.length > 0">
+        <app-map-view [viviendas]="viviendas"></app-map-view>
+      </ng-container>
     </div>
 
     <div class="mb-4 mt-2 row row-cols-2 row-cols-md-3 row-cols-xl-4 g-4">

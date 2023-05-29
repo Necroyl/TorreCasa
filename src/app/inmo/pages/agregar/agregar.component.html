@@ -72,7 +72,7 @@
           <div class="col-8">
             <div class="wart-input100-noBorder m-3">
               <span class="label-input100">Fotos</span>
-              <input type="file" (change)="onFileChange($event)">
+              <input type="file" formControlName="fotos" #fileImage (change)="onFileChange(fileImage)" multiple>
               <span class="focus-input100"></span>
             </div>
           </div>

@@ -16,6 +16,7 @@ import Swal from 'sweetalert2';
 export class AgregarComponent implements OnInit {
 
   miFormulario!: FormGroup;
+  fotos: String[] = [];
 
   direccion: string = '';
   lng?: number;
@@ -32,15 +33,13 @@ export class AgregarComponent implements OnInit {
 
     this.miFormulario = this.fb.group({
       direccion: ['', [Validators.required]],
-      planta: [4, [Validators.required, Validators.min(1)]],
+      planta: [, [Validators.required, Validators.min(1)]],
       puerta: [''],
       lat: [0],
       lng: [0],
-      descripcion: [
-        'Incluye una descripción detallada de tu vivienda. No olvides datos de interés como los metros cuadrados, número de habitaciones, baños, etc. También es importante conocer el estado de la vivienda y si dispone de terraza, balcón o piscina.',
-        [Validators.required, Validators.minLength(50)]],
-      precio: [200000, [Validators.required]],
-      foto: new FormControl('', [Validators.required])
+      descripcion: ['', [Validators.required, Validators.minLength(50)]],
+      precio: [0, [Validators.required]],
+      fotos: new FormControl( [], [Validators.required])
     });
 
   }
@@ -57,22 +56,31 @@ export class AgregarComponent implements OnInit {
     })
   }
 
-  onFileChange(event:any){
-    if (event.target.files.length > 0) {
-      const file = event.target.files[0];
-      console.log
-      this.miFormulario.patchValue({
-        foto: file
-      });
+  onFileChange(fileInput: HTMLInputElement){
+    if (!fileInput.files || fileInput.files.length === 0)
+    {
+      return;
+    }
+
+    for (let i = 0; i < fileInput.files.length; i++) {
+      const reader: FileReader = new FileReader();
+      const file: File = fileInput.files[i];
+
+      reader.onload = (event: any) => {
+        const foto64: string = event.target.result;
+        this.fotos.push(foto64);
+      };
+
+      reader.readAsDataURL(file);
     }
   }
 
   agregar(){
     if(this.miFormulario.valid){
-      const vivienda: Vivienda = this.miFormulario.value;
 
+      const vivienda: Vivienda = this.miFormulario.value;
+      vivienda.fotos = Array.from(this.fotos);
       vivienda.propietario = this.authService.getUserData();
-      console.log(vivienda)
 
       this.vivService.add(vivienda).subscribe( response => {
         if( response ){

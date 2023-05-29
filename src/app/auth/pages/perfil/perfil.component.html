@@ -1,13 +1,17 @@
-<h1>Perfil</h1>
-<hr>
+<div class="limiter">
+  <div class="container-login100" style="background-image: url('../../../../assets/images/bg-01.jpg');">
+      <div class="wrap-login100 p-5">
 
-<p>
-  Esta página sólo funciona si estoy autenticado
-</p>
+      <h1>Perfil</h1>
+      <hr>
 
-<h4>User info</h4>
-<pre> {{ usuario | json }} </pre>
+      <h4>User info</h4>
+      <pre> {{ usuario | json }} </pre>
 
-<button (click)="logout()">
-  Logout
-</button>
+      <button (click)="logout()">
+        Logout
+      </button>
+
+      </div>
+  </div>
+</div>

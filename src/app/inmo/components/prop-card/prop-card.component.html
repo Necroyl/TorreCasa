@@ -1,21 +1,16 @@
 
 <div class="card" style="width: 20rem;">
-  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
+  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
-      <div class="carousel-item active" *for="let foto of vivienda.foto">
-        <img [src]="vivienda?.foto" class="d-block w-100" alt="Thumbnail">
+      <div class="carousel-item" *ngFor="let foto of vivienda!.fotos; let i = index" [class.active]="i === 0">
+        <a [routerLink]="['/inmo/', vivienda?._id]"><img [src]="foto" class="d-block w-100" alt="..." style="height: 200px;"></a>
       </div>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
     </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button>
@@ -27,9 +22,9 @@
       <li class="list-group-item">Precio: {{ vivienda!.precio }}</li>
       <li class="list-group-item">Ubicación: {{ vivienda!.direccion }} </li>
     </ul>
-  <div class="button-group" >
-    <button *ngIf="!vivienda?.mine" (click)="delete()" class="btn btn-fuchsia mt-3">Borrar</button>
-    <a [routerLink]="['/inmo', vivienda?._id]" class="btn btn-primary mt-3 float-end">Ver más</a>
-  </div>
+    <div class="button-group" >
+      <button *ngIf="!vivienda?.mine" (click)="delete()" class="btn btn-fuchsia mt-3">Borrar</button>
+      <a [routerLink]="['/inmo/', vivienda?._id]" class="btn btn-primary mt-3 float-end">Ver más</a>
+    </div>
   </div>
 </div>

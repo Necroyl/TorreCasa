@@ -36,8 +36,8 @@ export class ViviendaService {
     );
   }
 
-  getOne(id: number): Observable<Vivienda>{
-    return this.http.get<ViviendaResponse>(`${this.baseUrl}/viviendas/${id}`)
+  getOne(id: string): Observable<Vivienda>{
+      return this.http.get<ViviendaResponse>(`${this.baseUrl}/viviendas/${id}`)
       .pipe( map( (response) => response.vivienda ));
   }
 
@@ -51,7 +51,6 @@ export class ViviendaService {
   }
 
   delete(vivienda: Vivienda): Observable<void> {
-    console.log(vivienda)
     return this.http.delete<void>(`${this.baseUrl}/viviendas/${vivienda._id}`)
       .pipe(
         retry(3),

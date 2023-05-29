@@ -27,7 +27,7 @@ export class ListadoComponent implements OnInit {
 
   ngOnInit() {
     this.viviendaService.getAll().subscribe( (res) => {
-      this.viviendas = res; // Devuelve undefined
+      this.viviendas = res;
     })
   }
 

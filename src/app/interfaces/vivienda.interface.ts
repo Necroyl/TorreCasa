@@ -1,7 +1,7 @@
 import { Usuario } from "../auth/interfaces/usuario";
 
 export interface Vivienda {
-  _id?: number,
+  _id?: string,
   direccion: string,
   planta: number,
   puerta?: string,
@@ -9,7 +9,7 @@ export interface Vivienda {
   lng: number,
   descripcion: string,
   precio: number,
-  foto: File,
+  fotos: String[],
   propietario?: Usuario,
   mine?: boolean;
 }
