@@ -53,6 +53,28 @@ export class AuthService {
       );
   }
 
+  cambiarEmail( email: string, id: string ) {
+    const url: string = `${ this.baseUrl }/api/auth/newEmail`;
+    const body = { email, id };
+
+    return this.http.post<AuthResponse>(url, body)
+      .pipe(
+        map( resp => resp.msg ),
+        catchError( err => of( err.error.msg ) )
+      )
+  }
+
+  cambiarPass( password: string, id: string ) {
+    const url: string = `${ this.baseUrl }/api/auth/newPass`;
+    const body = { password, id };
+
+    return this.http.post<AuthResponse>(url, body)
+      .pipe(
+        map( resp => resp ),
+        catchError( err => of(err.error) )
+      )
+  }
+
   validarToken(): Observable<boolean> {
     const url: string = `${ this.baseUrl }/api/auth/renew`;
     const headers = new HttpHeaders()

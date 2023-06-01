@@ -13,6 +13,7 @@ export interface Usuario {
   uid: string,
   name: string,
   email: string,
+  password?: string,
   nombre?: string,
   apellidos?: string,
   avatar?: string,

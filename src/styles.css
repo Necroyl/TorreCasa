@@ -222,6 +222,10 @@ button:hover {
   width: 100%;
 }
 
+.profile100-form {
+  width: 50%;
+}
+
 .login100-form-title {
   display: block;
   font-family: Poppins-Bold;

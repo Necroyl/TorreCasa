@@ -1,17 +1,61 @@
 <div class="limiter">
   <div class="container-login100" style="background-image: url('../../../../assets/images/bg-01.jpg');">
-      <div class="wrap-login100 p-5">
 
-      <h1>Perfil</h1>
-      <hr>
+    <div>
+        <div class="wrap-login100 p-5 mb-5">
+          <h4>¡ Hola {{ usuario.email }} !</h4>
+          <h4>¡ Hola !</h4>
+        </div>
 
-      <h4>User info</h4>
-      <pre> {{ usuario | json }} </pre>
+        <div class="wrap-login100 p-5 mb-5">
+          <form class="login100-form" autocomplete="off" [formGroup]="mailForm" (ngSubmit)="cambiarEmail()">
+            <h4>Correo electrónico</h4>
 
-      <button (click)="logout()">
-        Logout
-      </button>
+            <div class="wrap-input100 mb-2">
+              <span class="label-input100">¿Quieres cambiar tu correo electrónico?</span>
+              <input class="input100" type="email" formControlName="email" placeholder="Ingresa tu nuevo email">
+              <span class="focus-input100"></span>
+            </div>
 
-      </div>
+            <div class="container-login100-form-btn">
+              <div class="wrap-login100-form-btn">
+                <div class="login100-form-bgbtn"></div>
+                <button class="login100-form-btn" type="submit" [disabled]="mailForm.invalid">
+                  Guardar
+                </button>
+              </div>
+            </div>
+
+          </form>
+        </div>
+
+        <div class="wrap-login100 p-5">
+          <form class="login100-form" autocomplete="off" [formGroup]="passForm" (ngSubmit)="cambiarPass()">
+            <h4>Contraseña</h4>
+
+            <div class="wrap-input100 mb-2">
+              <span class="label-input100">¿Quieres cambiar tu contraseña?</span>
+              <input class="input100" type="email" formControlName="pass" placeholder="Ingresa tu nueva contraseña">
+              <span class="focus-input100"></span>
+            </div>
+
+            <div class="wrap-input100 mb-2">
+              <input class="input100" type="email" formControlName="repPass" placeholder="Repite el nueva contraseña">
+              <span class="focus-input100"></span>
+            </div>
+
+            <div class="container-login100-form-btn">
+              <div class="wrap-login100-form-btn">
+                <div class="login100-form-bgbtn"></div>
+                <button class="login100-form-btn" type="submit" [disabled]="passForm.invalid">
+                  Guardar
+                </button>
+              </div>
+            </div>
+
+          </form>
+        </div>
+    </div>
+
   </div>
 </div>
