@@ -1,29 +1,22 @@
 
 <div class="card" style="width: 20rem;">
-  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+  <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item" *ngFor="let foto of vivienda!.fotos; let i = index" [class.active]="i === 0">
-        <a [routerLink]="['/inmo/', vivienda?._id]"><img [src]="foto" class="d-block w-100" alt="..." style="height: 200px;"></a>
+        <a [routerLink]="['/inmo/', vivienda?._id]">
+          <img [src]="foto" class="d-block w-100" alt="{{vivienda?._id}}" style="height: 200px;">
+        </a>
       </div>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
   </div>
-  <!-- <img [src]="vivienda?.foto" class="card-img-top" alt="Thumbnail"> -->
   <div class="card-body">
     <h5 class="card-title"></h5>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">Precio: {{ vivienda!.precio }}</li>
-      <li class="list-group-item">Ubicación: {{ vivienda!.direccion }} </li>
+      <li class="list-group-item">Precio: <br>{{ vivienda!.precio | number }} €</li>
+      <li class="list-group-item">Ubicación: <br>{{ vivienda!.direccion }} </li>
     </ul>
     <div class="button-group" >
-      <button *ngIf="!vivienda?.mine" (click)="delete()" class="btn btn-fuchsia mt-3">Borrar</button>
+      <button *ngIf="vivienda?.mine" (click)="delete()" class="btn btn-fuchsia mt-3">Borrar</button>
       <a [routerLink]="['/inmo/', vivienda?._id]" class="btn btn-primary mt-3 float-end">Ver más</a>
     </div>
   </div>

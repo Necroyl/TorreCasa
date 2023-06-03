@@ -5,6 +5,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { ValidarTokenGuard } from '../guards/validar-token.guard';
 import { LoguedUserGuard } from '../guards/logued-user.guard';
+import { LogoutComponent } from './pages/logout/logout.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,10 @@ const routes: Routes = [
         component: PerfilComponent,
         canActivate: [ ValidarTokenGuard ],
         canLoad: [ ValidarTokenGuard ]
+      },
+      {
+        path: 'logout',
+        component: LogoutComponent
       },
       {
         path: '**',

@@ -64,14 +64,14 @@
 
           <div class="col-4">
             <div class="wrap-input100 m-1">
-              <input class="input100" type="number" formControlName="precio" style="font-size: 25px;">
+              <input class="input100" type="number" formControlName="precio" style="font-size: 25px;" min="0">
               <span class="focus-input100"></span>
             </div>
           </div>
 
           <div class="col-8">
-            <div class="wart-input100-noBorder m-3">
-              <span class="label-input100">Fotos</span>
+            <div class="wart-input100-noBorder mt-3 ms-5">
+              <span class="label-input100 me-3">Fotos:</span>
               <input type="file" formControlName="fotos" #fileImage (change)="onFileChange(fileImage)" multiple>
               <span class="focus-input100"></span>
             </div>
@@ -81,7 +81,7 @@
 
         <div class="text-right pt-1 pb-2"></div>
 
-        <div class="container-login100-form-btn">
+        <div class="container-login100-form-btn mt-3">
           <div class="wrap-login100-form-btn">
             <div class="login100-form-bgbtn"></div>
             <button class="login100-form-btn"
@@ -98,7 +98,6 @@
           </span>
 
           <a routerLink="/inmo/listado" class="txt2">
-            <!-- LLAMA A FUNCIÓN QUE NAVEGA A LISTADO -->
             <!-- IMPLEMENTAR EL GUARD DEL PROYECTO DE CLIENTE -->
             Cancelar
           </a>

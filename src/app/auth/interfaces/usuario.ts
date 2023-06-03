@@ -14,7 +14,6 @@ export interface Usuario {
   name: string,
   email: string,
   password?: string,
-  nombre?: string,
   apellidos?: string,
   avatar?: string,
   favoritos?: [ Vivienda ],

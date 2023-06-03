@@ -48,8 +48,8 @@ export class AuthService {
             localStorage.setItem('token', resp.token!)
           }
         }),
-        map( resp => resp.ok ),
-        catchError( err => of(err.error.msg) )
+        map( resp => resp ),
+        catchError( err => of(err.error) )
       );
   }
 
@@ -101,6 +101,10 @@ export class AuthService {
     localStorage.clear();
   }
 
+  isUserLogged(): boolean{
+    return localStorage.getItem('token') ? true : false;
+  }
+
   getUserData(): any {
     const token = localStorage.getItem('token');
 
@@ -109,5 +113,10 @@ export class AuthService {
     const userData = JSON.parse(atob(token!.split('.')[1]));
 
     return userData;
+  }
+
+  getPropietario(usuario?: Usuario): Observable<any>{
+    return this.http.get<AuthResponse>(`${this.baseUrl}/api/auth/usuario/${usuario}`)
+    .pipe( map( (response) => response ));
   }
 }

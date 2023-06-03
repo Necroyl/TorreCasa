@@ -27,11 +27,13 @@ export class RegistroComponent {
     const { name, email, password } = this.miFormulario.value;
 
     this.authService.registro(name, email, password)
-      .subscribe( ok => {
-        if (ok === true) {
-          this.router.navigateByUrl('/auth/perfil');
+      .subscribe( resp => {
+        if (resp.ok === true) {
+          this.router.navigateByUrl('/auth/perfil').then(() => {
+            window.location.reload();
+          });
         } else {
-          Swal.fire('¡ERROR!', ok, 'error')
+          Swal.fire('¡ERROR!', resp.msg, 'error')
         }
       })
   }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnChanges, SimpleChanges } from '@angular/core';
 import { AuthService } from 'src/app/auth/services/auth.service';
 
 interface MenuItem {
@@ -18,12 +18,15 @@ interface MenuItem {
   ]
 })
 export class HeaderComponent {
+  usuario: boolean = false;
+
+  constructor( private authService: AuthService ) { }
+
+  ngOnInit(): void {
+    this.usuario = this.authService.isUserLogged();
+  }
 
   menuItems: MenuItem[] = [
-    {
-      ruta: '/auth/perfil',
-      nombre: 'Perfil'
-    },
     {
       ruta: '/auth/registro',
       nombre: 'Registro'
@@ -31,6 +34,17 @@ export class HeaderComponent {
     {
       ruta: '/auth/login',
       nombre: 'Login'
+    }
+  ]
+
+  menuItemsRegistrado: MenuItem[] = [
+    {
+      ruta: '/auth/perfil',
+      nombre: 'Perfil'
+    },
+    {
+      ruta: '/auth/logout',
+      nombre: 'Logout'
     }
   ]
 

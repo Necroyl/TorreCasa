@@ -1,4 +1,6 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Usuario } from 'src/app/auth/interfaces/usuario';
+import { AuthService } from 'src/app/auth/services/auth.service';
 import { Vivienda } from 'src/app/interfaces/vivienda.interface';
 
 @Component({
@@ -14,9 +16,22 @@ import { Vivienda } from 'src/app/interfaces/vivienda.interface';
     `
   ]
 })
-export class PropCardComponent {
+export class PropCardComponent implements OnInit{
   @Input() vivienda?: Vivienda;
   @Output() deleted = new EventEmitter<void>();
+  usuario?: Usuario;
+
+  constructor( private authService: AuthService ) {}
+
+  ngOnInit(): void {
+    this.usuario = this.authService.getUserData();
+
+    if(this.vivienda?.propietario == this.usuario?.uid) {
+      this.vivienda!.mine = true;
+    } else {
+      this.vivienda!.mine = false;
+    }
+  }
 
   delete(){
     this.deleted.emit();

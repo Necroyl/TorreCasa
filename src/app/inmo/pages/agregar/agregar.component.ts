@@ -34,11 +34,11 @@ export class AgregarComponent implements OnInit {
     this.miFormulario = this.fb.group({
       direccion: ['', [Validators.required]],
       planta: [, [Validators.required, Validators.min(1)]],
-      puerta: [''],
+      puerta: ['', [Validators.pattern('^[a-zA-Z0-9]+$')]],
       lat: [0],
       lng: [0],
       descripcion: ['', [Validators.required, Validators.minLength(50)]],
-      precio: [0, [Validators.required]],
+      precio: [0, [Validators.required, Validators.min(0)]],
       fotos: new FormControl( [], [Validators.required])
     });
 

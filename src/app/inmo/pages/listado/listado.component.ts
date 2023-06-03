@@ -23,7 +23,7 @@ import Swal from 'sweetalert2';
 export class ListadoComponent implements OnInit {
   viviendas: Vivienda[] = [];
 
-  constructor( private viviendaService: ViviendaService) {}
+  constructor( private viviendaService: ViviendaService ) {}
 
   ngOnInit() {
     this.viviendaService.getAll().subscribe( (res) => {
@@ -32,7 +32,6 @@ export class ListadoComponent implements OnInit {
   }
 
   onRestaurantDeleted(vivienda: Vivienda){
-    console.log(vivienda)
     this.viviendaService.delete(vivienda).subscribe({
       next: () => {
         Swal.fire({

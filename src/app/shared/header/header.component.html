@@ -15,7 +15,7 @@
       </div>
 
     <div class="mt-4">
-      <ul class="nav nav-pills">
+      <ul class="nav nav-pills" *ngIf="!usuario">
         <li *ngFor="let item of menuItems"
             [routerLink]="[ item.ruta ]"
             routerLinkActive="active"
@@ -23,6 +23,17 @@
           {{ item.nombre }}
         </li>
       </ul>
+
+      <ul class="nav nav-pills" *ngIf="usuario">
+        <li *ngFor="let item of menuItemsRegistrado"
+            [routerLink]="[ item.ruta ]"
+            routerLinkActive="active"
+            class="nav-link">
+          {{ item.nombre }}
+        </li>
+      </ul>
     </div>
+
+
     </header>
   </div>
