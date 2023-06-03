@@ -9,7 +9,7 @@ export interface Vivienda {
   lng: number,
   descripcion: string,
   precio: number,
-  fotos: String[],
+  fotos: string[],
   propietario: Usuario,
   mine?: boolean;
 }

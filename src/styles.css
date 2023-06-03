@@ -73,7 +73,7 @@ h6 {
 
 p {
   /* font-family: Poppins-Regular; */
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.7;
   color: #666666;
   margin: 0px;
@@ -188,31 +188,16 @@ button:hover {
   overflow: hidden;
 }
 
-.wrap-home100-left {
+.wrap-home100 {
   width: 1000px;
-  height: 200px;
-  margin: 50px;
-  transform: skew(20deg);
+  height: auto;
   background: #fff;
   border-radius: 10px;
   overflow: hidden;
 }
 
-.wrap-home100-right {
-  width: 1000px;
-  height: 200px;
-  margin: 50px;
-  transform: skew(-20deg);
-  background: #fff;
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.wrap-home100-left img {
-  width: 30%;
-  height: 165px;
-  position: relative;
-  transform: skew(-20deg);
+.wrap-home100>a {
+  text-decoration: none;
 }
 
 /*------------------------------------------------------------------

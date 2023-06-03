@@ -34,6 +34,7 @@ export class ViviendaComponent implements OnInit {
   ngOnInit(): void {
     this.viviendaId = this.route.snapshot.paramMap.get('id');
     this.usuario = this.authService.getUserData();
+    console.log(this.usuario);
 
     this.viviendaService.getOne(this.viviendaId!).subscribe((res) => {
       this.vivienda = res;
@@ -41,7 +42,9 @@ export class ViviendaComponent implements OnInit {
         this.authService.getPropietario(this.vivienda.propietario).subscribe( (res) => {
           this.vivienda.propietario = res.usuario as Usuario;
           this.idPropietario = res.usuario._id;
-          this.vivienda.mine = this.idPropietario === this.usuario!.uid;
+          if(this.usuario){
+            this.vivienda.mine = this.idPropietario === this.usuario!.uid;
+          }
         })
       }
     })

@@ -16,7 +16,7 @@ import Swal from 'sweetalert2';
 export class AgregarComponent implements OnInit {
 
   miFormulario!: FormGroup;
-  fotos: String[] = [];
+  fotos: string[] = [];
 
   direccion: string = '';
   lng?: number;

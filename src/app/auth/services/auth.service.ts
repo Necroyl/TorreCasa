@@ -108,11 +108,13 @@ export class AuthService {
   getUserData(): any {
     const token = localStorage.getItem('token');
 
-    // Aquí puedes realizar la lógica para decodificar el token y obtener los datos del usuario
-    // Por ejemplo, si el token es un JSON con los datos del usuario, puedes hacer:
-    const userData = JSON.parse(atob(token!.split('.')[1]));
+    // Lógica para decodificar el token y obtener los datos del usuario
+    // Si el token es un JSON con los datos del usuario:
+    if(token){
+      const userData = JSON.parse(atob(token!.split('.')[1]));
 
-    return userData;
+      return userData;
+    }
   }
 
   getPropietario(usuario?: Usuario): Observable<any>{

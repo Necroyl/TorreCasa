@@ -1,13 +1,11 @@
 
 <div class="card" style="width: 20rem;">
-  <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item" *ngFor="let foto of vivienda!.fotos; let i = index" [class.active]="i === 0">
-        <a [routerLink]="['/inmo/', vivienda?._id]">
-          <img [src]="foto" class="d-block w-100" alt="{{vivienda?._id}}" style="height: 200px;">
-        </a>
-      </div>
-    </div>
+  <div id="carouselExample" class="carousel slide">
+
+  <a [routerLink]="['/inmo/', vivienda?._id]">
+    <img src="{{ vivienda!.fotos[0] }}" class="d-block w-100" alt="{{vivienda!._id}}">
+  </a>
+
   </div>
   <div class="card-body">
     <h5 class="card-title"></h5>

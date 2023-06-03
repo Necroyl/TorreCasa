@@ -3,8 +3,8 @@
 
     <div>
         <div class="wrap-login100 p-5 mb-5">
-          <h4>¡ Hola {{ usuario.email }} !</h4>
-          <h4>¡ Hola !</h4>
+          <h4>¡ Hola {{ usuario.name }} !</h4>
+          <h4>¡ Tu email es {{ usuario.email }} !</h4>
         </div>
 
         <div class="wrap-login100 p-5 mb-5">
@@ -35,12 +35,12 @@
 
             <div class="wrap-input100 mb-2">
               <span class="label-input100">¿Quieres cambiar tu contraseña?</span>
-              <input class="input100" type="email" formControlName="pass" placeholder="Ingresa tu nueva contraseña">
+              <input class="input100" type="password" formControlName="pass" placeholder="Ingresa tu nueva contraseña">
               <span class="focus-input100"></span>
             </div>
 
             <div class="wrap-input100 mb-2">
-              <input class="input100" type="email" formControlName="repPass" placeholder="Repite el nueva contraseña">
+              <input class="input100" type="password" formControlName="repPass" placeholder="Repite el nueva contraseña">
               <span class="focus-input100"></span>
             </div>
 
