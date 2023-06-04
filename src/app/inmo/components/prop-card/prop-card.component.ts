@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Usuario } from 'src/app/auth/interfaces/usuario';
 import { AuthService } from 'src/app/auth/services/auth.service';
-import { Vivienda } from 'src/app/interfaces/vivienda.interface';
+import { Vivienda } from 'src/app/inmo/interfaces/vivienda.interface';
 
 @Component({
   selector: 'app-prop-card',

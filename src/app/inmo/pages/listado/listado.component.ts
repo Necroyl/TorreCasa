@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ViviendaService } from '../../services/viviendas.service';
-import { Vivienda } from 'src/app/interfaces/vivienda.interface';
+import { Vivienda } from 'src/app/inmo/interfaces/vivienda.interface';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -27,7 +27,8 @@ export class ListadoComponent implements OnInit {
 
   ngOnInit() {
     this.viviendaService.getAll().subscribe( (res) => {
-      this.viviendas = res;
+      if(res)
+        this.viviendas = res;
     })
   }
 

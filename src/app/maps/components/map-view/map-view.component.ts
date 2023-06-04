@@ -2,7 +2,7 @@ import { AfterViewInit, Component, ElementRef, Input, ViewChild } from '@angular
 import { Map, Marker, Popup } from 'mapbox-gl';
 import { MapService } from '../../services/map.service';
 import { PlacesService } from '../../services/places.service';
-import { Vivienda } from 'src/app/interfaces/vivienda.interface';
+import { Vivienda } from 'src/app/inmo/interfaces/vivienda.interface';
 
 @Component({
   selector: 'app-map-view',

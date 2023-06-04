@@ -39,7 +39,16 @@
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">Precio: {{ vivienda.precio | number }} € </li>
                 <li class="list-group-item">Ubicación: {{ vivienda.direccion }} </li>
-                <li class="list-group-item">Propietario: {{ vivienda.propietario.email }} </li>
+                <li class="list-group-item">Propietario: {{ vivienda.propietario.name }} </li>
+                <li class="list-group-item">
+                  ¿Quieres contactar? Haz click y envíale un mensaje a:
+                  <!-- <button class="mail" routerLink="/inmo/contacto" (click)="enviarMensaje(vivienda.propietario.email)">
+                    <strong>{{ vivienda.propietario.email }}</strong>
+                  </button> -->
+                  <a [routerLink]="['/inmo/contacto', vivienda.propietario.email]">
+                      <strong>{{vivienda.propietario.email}}</strong>
+                  </a>
+                </li>
               </ul>
             </div>
           </div>

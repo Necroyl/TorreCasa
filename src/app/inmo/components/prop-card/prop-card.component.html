@@ -1,21 +1,36 @@
 
 <div class="card" style="width: 20rem;">
-  <div id="carouselExample" class="carousel slide">
 
-  <a [routerLink]="['/inmo/', vivienda?._id]">
-    <img src="{{ vivienda!.fotos[0] }}" class="d-block w-100" alt="{{vivienda!._id}}">
-  </a>
-
+  <div class="card-head p-2" >
+    <a [routerLink]="['/inmo/', vivienda?._id]">
+      <img src="{{ vivienda!.fotos[0] }}"
+           class="d-block w-100"
+           alt="{{vivienda!._id}}" s
+           tyle="border-radius: 5px;">
+    </a>
   </div>
+
   <div class="card-body">
     <h5 class="card-title"></h5>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">Precio: <br>{{ vivienda!.precio | number }} €</li>
-      <li class="list-group-item">Ubicación: <br>{{ vivienda!.direccion }} </li>
+      <li class="list-group-item">
+        Precio: <br>{{ vivienda!.precio | number }} €
+      </li>
+      <li class="list-group-item">
+        Ubicación: <br>{{ vivienda!.direccion }}
+      </li>
     </ul>
     <div class="button-group" >
-      <button *ngIf="vivienda?.mine" (click)="delete()" class="btn btn-fuchsia mt-3">Borrar</button>
-      <a [routerLink]="['/inmo/', vivienda?._id]" class="btn btn-primary mt-3 float-end">Ver más</a>
+      <button *ngIf="vivienda?.mine"
+              (click)="delete()"
+              class="btn btn-fuchsia mt-3">
+              Borrar
+      </button>
+      <a [routerLink]="['/inmo/', vivienda?._id]"
+         class="btn btn-primary mt-3 float-end">
+         Ver más
+      </a>
     </div>
   </div>
+
 </div>

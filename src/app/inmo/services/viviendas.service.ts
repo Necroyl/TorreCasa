@@ -1,8 +1,8 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, map, throwError, retry, of } from 'rxjs';
-import { Vivienda } from 'src/app/interfaces/vivienda.interface';
-import { ViviendaResponse, ViviendasResponse } from 'src/app/interfaces/response';
+import { Vivienda } from 'src/app/inmo/interfaces/vivienda.interface';
+import { ViviendaResponse, ViviendasResponse } from 'src/app/inmo/interfaces/response';
 import { environment } from 'src/environments/environment';
 
 @Injectable({

@@ -6,6 +6,7 @@ import { ViviendaComponent } from './pages/vivienda/vivienda.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ValidarTokenGuard } from '../guards/validar-token.guard';
 import { AgregarComponent } from './pages/agregar/agregar.component';
+import { ContactoComponent } from './pages/contacto/contacto.component';
 
 const routes: Routes = [
   {
@@ -22,14 +23,14 @@ const routes: Routes = [
         canLoad: [ ValidarTokenGuard ]
       },
       {
-        path: 'favoritos',
-        component: ListadoComponent,
-        canActivate: [ ValidarTokenGuard ],
-        canLoad: [ ValidarTokenGuard ]
-      },
-      {
         path: 'listado',
         component: ListadoComponent
+      },
+      {
+        path: 'contacto/:correo',
+        component: ContactoComponent,
+        canActivate: [ ValidarTokenGuard ],
+        canLoad: [ ValidarTokenGuard ]
       },
       {
         path: ':id',

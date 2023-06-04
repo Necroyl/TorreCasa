@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Vivienda } from 'src/app/interfaces/vivienda.interface';
+import { Vivienda } from 'src/app/inmo/interfaces/vivienda.interface';
 import { ViviendaService } from '../../services/viviendas.service';
 import Swal from 'sweetalert2';
 import { AuthService } from 'src/app/auth/services/auth.service';
@@ -34,14 +34,13 @@ export class ViviendaComponent implements OnInit {
   ngOnInit(): void {
     this.viviendaId = this.route.snapshot.paramMap.get('id');
     this.usuario = this.authService.getUserData();
-    console.log(this.usuario);
 
     this.viviendaService.getOne(this.viviendaId!).subscribe((res) => {
       this.vivienda = res;
       if(this.vivienda){
-        this.authService.getPropietario(this.vivienda.propietario).subscribe( (res) => {
-          this.vivienda.propietario = res.usuario as Usuario;
-          this.idPropietario = res.usuario._id;
+        this.authService.getPropietario(this.vivienda.propietario).subscribe( (response) => {
+          this.vivienda.propietario = response.response;
+          this.idPropietario = response.response._id;
           if(this.usuario){
             this.vivienda.mine = this.idPropietario === this.usuario!.uid;
           }
@@ -70,4 +69,8 @@ export class ViviendaComponent implements OnInit {
       },
     });
   }
+
+  // enviarMensaje(correo: string){
+
+  // }
 }

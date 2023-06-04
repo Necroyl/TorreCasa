@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/services/auth.service';
-import { Vivienda } from 'src/app/interfaces/vivienda.interface';
+import { Vivienda } from 'src/app/inmo/interfaces/vivienda.interface';
 import { Feature } from 'src/app/maps/interfaces/places';
 import { ViviendaService } from '../../services/viviendas.service';
 import Swal from 'sweetalert2';

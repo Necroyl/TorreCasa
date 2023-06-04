@@ -1,22 +1,28 @@
 <div class="limiter">
   <div class="container-login100" style="background-image: url('../../../../assets/images/bg-01.jpg');">
 
-    <div class="col-12">
+    <div class="col-12" *ngIf="viviendas.length > 0">
       <h1 class="text-white">Viviendas a la venta</h1>
     </div>
 
-    <div class="col-12 map">
-      <ng-container *ngIf="viviendas.length > 0">
+    <div class="col-12" *ngIf="viviendas.length == 0">
+      <h1 class="text-white">Oops! Aún no hay viviendas a la venta.</h1>
+    </div>
+
+    <div class="col-12 map" *ngIf="viviendas.length > 0">
+      <ng-container >
         <app-map-view [viviendas]="viviendas"></app-map-view>
       </ng-container>
     </div>
 
-    <div class="mb-4 mt-2 row row-cols-2 row-cols-md-3 row-cols-xl-4 g-4">
-        <app-prop-card
-            *ngFor="let vivienda of viviendas"
-            [vivienda]="vivienda" class="m-5"
-            (deleted)="onRestaurantDeleted(vivienda)">
-        </app-prop-card>
+    <div class="col-12">
+      <div class="mb-4 mt-2 row row-cols-2 row-cols-md-3 row-cols-xl-4 g-4">
+          <app-prop-card
+              *ngFor="let vivienda of viviendas"
+              [vivienda]="vivienda" class="m-5 mb-4"
+              (deleted)="onRestaurantDeleted(vivienda)">
+          </app-prop-card>
+      </div>
     </div>
 
   </div>

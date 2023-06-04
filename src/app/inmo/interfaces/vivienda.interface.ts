@@ -1,4 +1,4 @@
-import { Usuario } from "../auth/interfaces/usuario";
+import { Usuario } from "../../auth/interfaces/usuario";
 
 export interface Vivienda {
   _id?: string,

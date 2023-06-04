@@ -1,0 +1,50 @@
+<div class="limiter">
+  <div class="container-login100" style="background-image: url('../../../../assets/images/bg-01.jpg');">
+
+    <div class="wrap-vivienda100 p-5">
+      <form class="add100-form" autocomplete="off" #form="ngForm" (ngSubmit)="contactForm(form.value)">
+
+        <span class="add100-form-title">
+          Envíale un mensaje
+        </span>
+
+        <div class="form-group">
+          <label>Nombre</label>
+          <input type="text" class="form-control" name="nombre" ngModel required>
+        </div>
+
+        <div class="form-group">
+          <label>Asunto</label>
+          <input type="text" class="form-control" name="asunto" ngModel required>
+        </div>
+
+        <div class="form-group">
+          <label>Tu e-mail</label>
+          <input type="email" class="form-control" name="emailEmi" ngModel required
+                 placeholder="Introduce un correo para que el propietario pueda contactar contigo">
+        </div>
+
+        <div class="form-group">
+          <label>E-mail destino</label>
+          <input type="email" class="form-control" name="emailDest" [(ngModel)]="correo" readonly>
+        </div>
+
+        <div class="form-group">
+          <label>Mensaje</label>
+          <textarea class="form-control" cols="30" rows="6" name="mensaje" ngModel required></textarea>
+        </div>
+
+        <div class="container-login100-form-btn mt-3">
+          <div class="wrap-login100-form-btn">
+            <div class="login100-form-bgbtn"></div>
+            <button class="login100-form-btn"
+                    type="submit" [disabled]="form.invalid">
+                    Enviar
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</div>
