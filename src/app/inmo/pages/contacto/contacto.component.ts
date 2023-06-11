@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MessageService } from '../../services/message.service';
 import Swal from 'sweetalert2';
-import { Usuario } from 'src/app/auth/interfaces/usuario';
-import { AuthService } from 'src/app/auth/services/auth.service';
 
 @Component({
   selector: 'app-contacto',
