@@ -29,9 +29,7 @@ export class LoginComponent{
     this.authService.login(email, password)
       .subscribe( (ok) => {
         if (ok === true) {
-          this.router.navigateByUrl('/auth/perfil').then(() => {
-            window.location.reload();
-          });
+          this.router.navigateByUrl('/auth/perfil');
         } else {
           Swal.fire('¡ERROR!', ok, 'error');
         }

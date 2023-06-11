@@ -1,20 +1,29 @@
 # Utiliza una imagen base de Node.js adecuada
-FROM node:14-alpine
+FROM node:14-alpine as builder
 
 # Establece el directorio de trabajo en el contenedor
 WORKDIR /app
 
-# Copia los archivos de tu proyecto al contenedor
-COPY cliente/ ./
+# Copiar los archivos necesarios
+COPY package.json package-lock.json ./
 
-# Instala las dependencias del cliente
+# Instalar las dependencias
 RUN npm install
 
-# Construye el proyecto de Angular
-RUN npm run build --prod
+# Copiar el código fuente de la aplicación
+COPY . .
 
-# Expone el puerto de la aplicación Angular (si es necesario)
-# EXPOSE 4200
+# Compilar la aplicación
+RUN npm run build
 
-# Comando para ejecutar el servidor web de Angular
-CMD ["npm", "start"]
+# Etapa 2: Ejecutar la aplicación en un servidor HTTP ligero
+FROM nginx:latest
+
+# Copiar los archivos generados en la etapa anterior
+COPY --from=builder /app/dist/torrecasa /usr/share/nginx/html
+
+# Configurar la exposición del puerto
+EXPOSE 80
+
+# Iniciar el servidor NGINX
+CMD ["nginx", "-g", "daemon off;"]

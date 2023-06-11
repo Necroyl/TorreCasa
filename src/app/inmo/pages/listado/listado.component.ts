@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ViviendaService } from '../../services/viviendas.service';
 import { Vivienda } from 'src/app/inmo/interfaces/vivienda.interface';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listado',
@@ -23,7 +24,8 @@ import Swal from 'sweetalert2';
 export class ListadoComponent implements OnInit {
   viviendas: Vivienda[] = [];
 
-  constructor( private viviendaService: ViviendaService ) {}
+  constructor( private viviendaService: ViviendaService,
+               private router: Router ) {}
 
   ngOnInit() {
     this.viviendaService.getAll().subscribe( (res) => {
@@ -40,7 +42,9 @@ export class ListadoComponent implements OnInit {
           title: 'Borrado',
           text: 'La vivienda ha sido borrada!',
         }).then(() => {
-          location.reload();
+          this.router.navigateByUrl('/inmo/listado').then( () => {
+            location.reload();
+          })
         })
       },
       error: (error) => {
