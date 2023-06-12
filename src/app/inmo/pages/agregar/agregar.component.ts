@@ -38,7 +38,7 @@ export class AgregarComponent implements OnInit {
       lat: [0],
       lng: [0],
       descripcion: ['', [Validators.required, Validators.minLength(50)]],
-      precio: [0, [Validators.required, Validators.min(0)]],
+      precio: [, [Validators.required, Validators.min(0)]],
       fotos: new FormControl( [], [Validators.required])
     });
 
@@ -85,7 +85,7 @@ export class AgregarComponent implements OnInit {
       this.vivService.add(vivienda).subscribe( response => {
         if( response ){
           Swal.fire('¡Éxito!', 'La vivienda ha sido creada satisfactoriamente', 'success').then( () =>{
-            this.router.navigateByUrl('/inmo/listado')
+            this.router.navigateByUrl('/inmo/listado');
           });
         }else{
           Swal.fire('¡ERROR!', response, 'error')

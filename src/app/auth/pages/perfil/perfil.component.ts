@@ -54,7 +54,7 @@ export class PerfilComponent {
       .subscribe( resp => {
         if( resp ){
           Swal.fire('¡Éxito!', resp, 'success').then( () =>{
-            location.reload();
+            window.location.reload();
           });
         }else{
           Swal.fire('¡ERROR!', resp, 'error')

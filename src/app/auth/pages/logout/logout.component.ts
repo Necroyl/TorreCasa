@@ -14,6 +14,8 @@ export class LogoutComponent {
 
   ngOnInit() {
     this.authService.logout();
-    this.router.navigate(['/auth/login']);
+    this.router.navigateByUrl('/auth/login').then( () => {
+      window.location.reload();
+    });
   }
 }
